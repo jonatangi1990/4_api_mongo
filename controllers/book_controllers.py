@@ -71,13 +71,6 @@ async def update_book(book_id: str, book_data: BookCreate):
             return None
         update = await book_collection.find_one({"_id": ObjectId(book_id)})
         return book_helper(update)
-
-
-
-
-
-    async delete_book_by_id(book: BookCreate):
-        return book
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
     
